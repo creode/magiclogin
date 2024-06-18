@@ -25,6 +25,7 @@ coverage:
     - /*.svg
     - src/config.php
 params:
+  - env
   - tests/.env
 modules:
   config:
