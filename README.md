@@ -12,6 +12,7 @@ For details about which version of this package to use with your version of Craf
 | ------------- | ------------------- |
 | <4.0.0        | 2.x                 |
 | 4.0.0         | 3.x                 |
+| 5.0.0         | 4.x                 |
 
 ## Requirements
 
