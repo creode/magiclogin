@@ -20,11 +20,11 @@ class CraftDefaultRegistrationCest
         $I->amOnPage('admin/users/new');
         $emailAddress = 'contact@creode.co.uk';
 
-        $I->submitForm('#userform', [
+        $I->submitForm('#main-form', [
             'username' => 'creode',
             'email' => $emailAddress,
-            'sendActivationEmail' => '1',
-        ], 'Save');
+            // 'sendActivationEmail' => '1',
+        ], 'Create user');
 
         $I->amOnPage('/admin/users');
 
@@ -50,11 +50,10 @@ class CraftDefaultRegistrationCest
 
         $authRecords = AuthRecord::find()->all();
 
-        $I->submitForm('#userform', [
+        $I->submitForm('#main-form', [
             'username' => 'creode',
             'email' => $emailAddress,
-            'sendVerificationEmail' => '1',
-        ], 'Save');
+        ], 'Create user');
 
         $updatedAuthRecords = AuthRecord::find()->all();
 
