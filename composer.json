@@ -48,7 +48,8 @@
         "vlucas/phpdotenv": "^5.4.1",
         "codeception/module-yii2": "^1.1.9",
         "codeception/module-asserts": "^3.0.0",
-        "marcocesarato/php-conventional-changelog": "^1.17"
+        "marcocesarato/php-conventional-changelog": "^1.17",
+        "craftcms/phpstan": "dev-main"
     },
     "autoload": {
         "psr-4": {
@@ -58,6 +59,7 @@
     },
     "scripts": {
         "test": "php vendor/bin/codecept run",
+        "phpstan": "phpstan --memory-limit=1G",
         "coverage-test": "XDEBUG_MODE=coverage ./vendor/bin/codecept run --coverage-html coverage-report",
         "changelog": "php vendor/bin/conventional-changelog",
         "release": "php vendor/bin/conventional-changelog --commit",
@@ -78,5 +80,7 @@
         },
         "class": "creode\\magiclogin\\MagicLogin"
     },
-    "version": "3.1.1"
+    "version": "3.1.1",
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
