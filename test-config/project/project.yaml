@@ -7,7 +7,7 @@ plugins:
   magic-login:
     edition: standard
     enabled: true
-    schemaVersion: 1.0.0
+    schemaVersion: 2.0.0
 system:
   edition: pro
   live: true
