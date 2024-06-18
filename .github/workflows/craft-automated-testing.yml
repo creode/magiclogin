@@ -43,17 +43,8 @@ jobs:
     - name: Install dependencies
       run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
     - name: Setup Tests
       run: cp tests/example-env-ci tests/.env
 
     - name: Run test suite
       run: composer run-script test
-      env:
-        DB_USER: root
-        DB_SERVER: 127.0.0.1
-        DB_DRIVER: mysql
-        DB_DATABASE: craft_tests
-        DB_PORT: ${{ job.services.mysql.ports[3306] }}
