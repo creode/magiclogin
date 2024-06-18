@@ -6,13 +6,14 @@ on:
       - 1.x
       - 2.x
       - 3.x
+      - 4.x
 
 jobs:
   build-release:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
