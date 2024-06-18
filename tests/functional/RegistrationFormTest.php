@@ -317,7 +317,7 @@ class RegistrationFormTest extends BaseFunctionalTest
         $user = UserElement::find()
             ->addSelect(['users.password'])
             ->email($registrationEmail)
-            ->anyStatus()
+            ->status(null)
             ->one();
 
         $this->assertTrue($user->authenticate($password));
