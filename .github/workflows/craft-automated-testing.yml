@@ -48,3 +48,5 @@ jobs:
 
     - name: Run test suite
       run: composer run-script test
+      env:
+        DB_PORT: ${{ job.services.mysql.ports[3306] }}

@@ -6,5 +6,4 @@ DB_DRIVER=mysql
 DB_DATABASE=craft_tests
 DB_SCHEMA=""
 DB_TABLE_PREFIX="craft"
-DB_PORT="3306"
 SECURITY_KEY="abcde12345"
