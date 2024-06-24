@@ -20,6 +20,7 @@ use yii\mail\MailEvent;
 use craft\elements\User;
 use craft\web\UrlManager;
 use yii\base\ActionEvent;
+use craft\enums\CmsEdition;
 use craft\models\UserGroup;
 use craft\services\Plugins;
 use craft\events\PluginEvent;
@@ -78,15 +79,16 @@ class MagicLogin extends Plugin
      * @var bool
      */
     public bool $hasCpSettings = true;
+    
+    /**
+     * User Group Handle.
+     */
+    public const MAGIC_LOGIN_USER_GROUP_HANDLE = 'magicLogin';
 
     /**
-     * Set to `true` if the plugin should have its own section (main nav item) in the control panel.
-     *
-     * @var bool
+     * @inheritdoc
      */
-//    public bool $hasCpSection = false;
-    
-    public const MAGIC_LOGIN_USER_GROUP_HANDLE = 'magicLogin';
+    public CmsEdition $minCmsEdition = CmsEdition::Pro;
 
     // Public Methods
     // =========================================================================
@@ -332,7 +334,7 @@ class MagicLogin extends Plugin
         }
 
         // TODO: This will need removing once the check for beforeInstall can pass.
-        if (Craft::$app->getEdition() !== Craft::Pro) {
+        if (Craft::$app->getEdition() !== CmsEdition::Pro) {
             Craft::$app->session->setError(
                 Craft::t(
                     'magic-login',
