@@ -4,6 +4,16 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## 4.0.0 - 2024-06-24
+
+### ⚠ BREAKING CHANGES
+
+* Bumps dependencies for magic login for initial craft 5 support. (4c5384)
+
+### Bug Fixes
+
+* Deprecated function. (823894)
+
 ## 3.1.1 - 2023-04-12
 
 ### Bug Fixes
