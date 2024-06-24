@@ -252,7 +252,7 @@ class MagicLoginController extends Controller
         // Get the user and magic link group.
         $user = User::find()
             ->id($authRecord->userId)
-            ->anyStatus()
+            ->status(null)
             ->one();
         
         // If we can't find record trigger a failure.

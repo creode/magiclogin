@@ -7,4 +7,5 @@ return [
 	'postLoginRedirect' => '/',
 	'requireUserAgentAndIpForSession' => false,
 	'securityKey' => App::env('SECURITY_KEY'),
+	'enableCsrfProtection' => false,
 ];
