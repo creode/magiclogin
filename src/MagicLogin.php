@@ -425,10 +425,13 @@ class MagicLogin extends Plugin
         /** @var Controller $controller */
         $controller = Craft::$app->controller;
 
+        $overrides = Craft::$app->getConfig()->getConfigFromFile(strtolower($this->handle));
+
         return $controller->renderTemplate('magic-login/settings', [
             'plugin' => $this,
             'settingsHtml' => $settingsHtml,
             'settings' => $this->getSettings(),
+            'overrides' => array_keys($overrides),
         ]);
     }
 
