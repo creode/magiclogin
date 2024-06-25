@@ -4,6 +4,12 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## 4.1.0 - 2024-06-25
+
+### Features
+
+* Disable settings field and display message to user if being overridden in config (1a5dbf)
+
 ## 4.0.0 - 2024-06-24
 
 ### ⚠ BREAKING CHANGES
