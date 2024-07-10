@@ -15,6 +15,7 @@ use DateTime;
 use craft\elements\User;
 use craft\web\Controller;
 use creode\magiclogin\MagicLogin;
+use yii\web\NotFoundHttpException;
 
 /**
  * MagicLogin Controller
@@ -162,6 +163,11 @@ class MagicLoginController extends Controller
             $this->redirect($generalConfig->postLoginRedirect);
         }
 
+        $userConfig = Craft::$app->getProjectConfig()->get('users') ?? [];
+        if (! $userConfig['allowPublicRegistration']) {
+            throw new NotFoundHttpException();
+        }
+
         return $this->renderTemplate('magic-login/_register-form');
     }
 
@@ -180,6 +186,11 @@ class MagicLoginController extends Controller
                 ['magicLoginRegistration' => true]
             )
         );
+
+        $userSettings = Craft::$app->getProjectConfig()->get('users');
+        if (!$userSettings['allowPublicRegistration']) {
+            throw new NotFoundHttpException();
+        }
 
         if (Craft::$app->getUser()->getIdentity()) {
             $generalConfig = Craft::$app->getConfig()->getGeneral();
