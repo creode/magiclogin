@@ -11,10 +11,10 @@
 namespace creode\magiclogin\controllers;
 
 use Craft;
+use DateTime;
 use craft\elements\User;
 use craft\web\Controller;
 use creode\magiclogin\MagicLogin;
-use DateTime;
 
 /**
  * MagicLogin Controller
@@ -190,6 +190,12 @@ class MagicLoginController extends Controller
         $email = Craft::$app
             ->getRequest()
             ->getRequiredParam('email');
+
+        $generalConfig = Craft::$app->getConfig()->getGeneral();
+        if (! $generalConfig->useEmailAsUsername) {
+            $this->setFailFlash(\Craft::t('magic-login', 'Please enter a valid username.'));
+            return;
+        }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             // TODO: Maybe set this to be configurable in future.
