@@ -4,6 +4,10 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## 3.1.2 - 2024-08-30
+
+* Backport Feature/link access limit to 3.x ()
+
 ## 3.1.1 - 2023-04-12
 
 ### Bug Fixes
