@@ -134,7 +134,7 @@ class AuthModel extends Model
 	{
 		$rules = parent::rules();
 		$rules[] = [['publicKey', 'privateKey', 'redirectUrl'], 'string'];
-		$rules[] = [['userId'], 'number'];
+		$rules[] = [['userId', 'accessCount'], 'number'];
 		$rules[] = [['dateCreated', 'nextEmailSend'], DateTimeValidator::class];
 		
 		return $rules;
