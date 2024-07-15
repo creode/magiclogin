@@ -4,6 +4,13 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## 4.2.0 - 2024-07-15
+
+### Features
+
+* Add in functionality to allow a configurable amount of times a link can be accessed before it is expired. (65c274)
+* Add migrations to count how many times a link has been accessed (fa28ee)
+
 ## 4.1.0 - 2024-06-25
 
 ### Features
