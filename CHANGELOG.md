@@ -4,6 +4,16 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## 4.3.0 - 2024-08-20
+
+### Features
+
+* Allow registration process to log a user in if correct configuration has allowed for it. (cd5549)
+
+### Bug Fixes
+
+* Tests schema version bump (2348fe)
+
 ## 4.2.0 - 2024-07-15
 
 ### Features
