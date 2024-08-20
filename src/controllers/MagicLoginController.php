@@ -206,6 +206,12 @@ class MagicLoginController extends Controller
         // Save the user
         Craft::$app->runAction('users/save-user');
 
+        // Handle users which can be logged in automatically.
+        $currentUser = Craft::$app->getUser()->getIdentity();
+        if ($currentUser) {
+            return $this->redirectToPostedUrl(null, 'magic-login/login-link-sent');
+        }
+
         // Send the new user a magic login link email.
         Craft::$app->runAction('magic-login/magic-login/login');
 
