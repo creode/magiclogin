@@ -23,6 +23,7 @@
 } %}
 
 {% import "_includes/forms" as forms %}
+
 {% macro configWarning(setting) -%}
     {% set setting = '<code>'~setting~'</code>' %}
     {{ "This is being overridden by the {setting} config setting in your {file} config file."|t('magic-login', {
@@ -47,7 +48,9 @@
                 id: 'linkExpiry',
                 name: 'linkExpiry',
                 min: 1,
-                value: settings.linkExpiry})
+                value: settings.linkExpiry,
+                disabled: 'linkExpiry' in overrides,
+                warning: 'linkExpiry' in overrides ? configWarning('linkExpiry')})
             }}
 
             {{ forms.textField({
@@ -57,7 +60,9 @@
                 name: 'passwordLength',
                 min: 16,
                 max: 50,
-                value: settings.passwordLength})
+                value: settings.passwordLength,
+                disabled: 'passwordLength' in overrides,
+                warning: 'passwordLength' in overrides ? configWarning('passwordLength')})
             }}
 
             {{ forms.textField({
@@ -66,7 +71,9 @@
                 id: 'emailRateLimit',
                 name: 'emailRateLimit',
                 min: 1,
-                value: settings.emailRateLimit})
+                value: settings.emailRateLimit,
+                disabled: 'emailRateLimit' in overrides,
+                warning: 'emailRateLimit' in overrides ? configWarning('emailRateLimit')})
             }}
 
             {{ forms.textField({
@@ -88,7 +95,9 @@
                 instructions: 'What to display on the subject line for Magic Link emails.',
                 id: 'authenticationEmailSubject',
                 name: 'authenticationEmailSubject',
-                value: settings.authenticationEmailSubject})
+                value: settings.authenticationEmailSubject,
+                disabled: 'authenticationEmailSubject' in overrides,
+                warning: 'authenticationEmailSubject' in overrides ? configWarning('authenticationEmailSubject')})
             }}
         </div>
     {% endnamespace %}
