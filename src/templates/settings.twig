@@ -23,6 +23,14 @@
 } %}
 
 {% import "_includes/forms" as forms %}
+{% macro configWarning(setting) -%}
+    {% set setting = '<code>'~setting~'</code>' %}
+    {{ "This is being overridden by the {setting} config setting in your {file} config file."|t('magic-login', {
+        setting: setting,
+        file: 'magin-login.php'
+    })|raw }}
+{%- endmacro %}
+{% from _self import configWarning %}
 
 {% block content %}
 
